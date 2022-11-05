@@ -26,14 +26,14 @@ def insert_resultado():
     return response, 201
 
 
-@resultado_blueprint.route("resultado/update/<string:id_>", methods=['PATCH'])
+@resultado_blueprint.route("/resultado/update/<string:id_>", methods=['PATCH'])
 def update_resultado(id_):
     resultado = request.get_json()
     response = resultado_controller.update(id_, resultado)
     return response, 201
 
 
-@resultado_blueprint.route("resultado/delete/<string:id_>", methods=['DELETE'])
+@resultado_blueprint.route("/resultado/delete/<string:id_>", methods=['DELETE'])
 def delete_resultado(id_):
     response = resultado_controller.delete(id_)
     return response, 204

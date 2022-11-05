@@ -27,14 +27,14 @@ def insert_mesa():
     return response, 201
 
 
-@mesa_blueprint.route("mesa/update/<string:id_>", methods=['PATCH'])
+@mesa_blueprint.route("/mesa/update/<string:id_>", methods=['PATCH'])
 def update_mesa(id_):
     mesa = request.get_json()
     response = mesa_controller.update(id_, mesa)
     return response, 201
 
 
-@mesa_blueprint.route("mesa/delete/<string:id_>", methods=['DELETE'])
+@mesa_blueprint.route("/mesa/delete/<string:id_>", methods=['DELETE'])
 def delete_mesa(id_):
     response = mesa_controller.delete(id_)
     return response, 204
