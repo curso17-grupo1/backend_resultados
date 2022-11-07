@@ -1,4 +1,5 @@
 from models.candidato import Candidato
+from repositories.candidato_repositories import CandidatoRepository
 
 
 class CandidatoController:
@@ -8,6 +9,7 @@ class CandidatoController:
         Este es el constructor de el CandidatoController
         """
         print("Candidato Controller ready")
+        self.candidato_repositories = CandidatoRepository()
 
     def index(self) -> list:
         """
@@ -16,17 +18,8 @@ class CandidatoController:
         :return: lista de candidatos
         """
         print("All candidatos")
-        data = {
-            "_id": "abc123",
-            "cedula": "79001122",
-            "nombre": "Petrosky",
-            "lema": "Trabajar, trabajar y trabajar",
-        }
-        print(data)
-        candidato = Candidato(data)
-        return[candidato.__dict__]
+        return self.candidato_repositories.find_all()
 
-    # Equivalente a 'uno por el elemento'
     def show(self, id_: str) -> dict:
         """
 
@@ -34,17 +27,10 @@ class CandidatoController:
         :return:
         """
         print("mostrar un candidato")
-        data = {
-            "_id": id_,
-            "cedula": "79001122",
-            "nombre": "Petrosky",
-            "lema": "Trabajar, trabajar y trabajar"
-        }
-        candidato = Candidato(data)
-        return candidato.__dict__
+        candidato = self.candidato_repositories.find_by_id(id_)
+        return candidato
 
-    # equivalente a agregar
-    def create(self, candidato_: dict) -> dict:
+    def create(self, candidato_: dict) -> Candidato:
         """
 
         :param candidato_:
@@ -52,9 +38,9 @@ class CandidatoController:
         """
         print("crear candidadato")
         candidato = Candidato(candidato_)
-        return candidato.__dict__
+        return self.candidato_repositories.save(candidato)
 
-    def update(self, id_: str, candidato_: dict) -> dict:
+    def update(self, id_: str, candidato_: dict) -> Candidato:
         """
 
         :param id_:
@@ -62,11 +48,14 @@ class CandidatoController:
         :return:
         """
         print("update candidato")
-        data = candidato_
-        data['_id'] = id_
-        candidato = Candidato(data)
-        return candidato.__dict__
+        candidato = Candidato(candidato_)
+        return self.candidato_repositories.update(id_, candidato)
 
     def delete(self, id_: str) -> dict:
-        print("delete candidato " + id_)
-        return {"Borramos un elemento": 1}
+        """
+
+        :param id_:
+        :return:
+        """
+        print("delete candidato ")
+        return self.candidato_repositories.delete(id_)
