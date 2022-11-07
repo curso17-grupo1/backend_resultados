@@ -1,7 +1,7 @@
 from flask import Blueprint
 from flask import request
 
-from controllers.mesa_Controller import MesaController
+from controllers.mesa_controller import MesaController
 
 
 mesa_blueprint = Blueprint('mesa_blueprint', __name__)

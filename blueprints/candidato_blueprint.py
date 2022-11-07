@@ -1,7 +1,7 @@
 from flask import Blueprint
 from flask import request
 
-from controllers.candidato_Controller import CandidatoController
+from controllers.candidato_controller import CandidatoController
 
 candidato_blueprint = Blueprint('candidato_blueprint', __name__)
 candidato_controller = CandidatoController()
