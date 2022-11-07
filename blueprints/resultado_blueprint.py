@@ -1,7 +1,7 @@
 from flask import Blueprint
 from flask import request
 
-from controllers.resultadoController import ResultadoController
+from controllers.resultado_controller import ResultadoController
 
 resultado_blueprint = Blueprint('resultado_blueprint', __name__)
 resultado_controller = ResultadoController()

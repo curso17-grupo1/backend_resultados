@@ -3,7 +3,7 @@ from models.resultado import Resultado
 
 class ResultadoController:
 
-    def __int__(self):
+    def __init__(self):
         """
 
         :return:

@@ -3,12 +3,12 @@ from models.mesa import Mesa
 
 class MesaController:
 
-    def __int__(self):
+    def __init__(self):
         """
 
         :return:
         """
-        print("mesa Controller ready")
+        print("Mesa Controller ready")
 
     def index(self) -> list:
         """

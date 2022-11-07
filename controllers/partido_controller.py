@@ -3,7 +3,7 @@ from models.partido import Partido
 
 class PartidoController:
 
-    def __int__(self):
+    def __init__(self):
         """
 
         :return:

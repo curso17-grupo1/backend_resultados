@@ -1,7 +1,7 @@
 from flask import Blueprint
 from flask import request
 
-from controllers.partidoController import PartidoController
+from controllers.partido_controller import PartidoController
 
 partido_blueprint = Blueprint('partido_blueprint', __name__)
 partido_controller = PartidoController()
